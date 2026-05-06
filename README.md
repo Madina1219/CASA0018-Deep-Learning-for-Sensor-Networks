@@ -6,12 +6,12 @@
 ![Accuracy](https://img.shields.io/badge/test%20accuracy-84.9%25-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
-> An embedded deep-learning system that classifies tomatoes as **ripe**, **unripe**, or **rotten**, and communicates the result through an RGB LED-running on a microcontroller small enough to fit inside a child's toy lamp.
+> An embedded deep-learning system that classifies tomatoes as **ripe**, **unripe**, or **rotten**, and communicates the result through an RGB LED — running on a microcontroller small enough to fit inside a child's toy lamp.
 
 <p align="center">
-  <img src="Media/Enclosure + Components/[Picture13].png" width="320" alt="Assembled prototype glowing green for a ripe tomato"/>
+  <img src="Media/Enclosure%20%2B%20Components/Picture13.png" width="320" alt="Assembled prototype glowing green for a ripe tomato"/>
   <br/>
-  <em>The assembled prototype signalling “ripe” in green. Amber = unripe, red = rotten.</em>
+  <em>The assembled prototype signalling "ripe" in green. Amber = unripe, red = rotten.</em>
 </p>
 
 ---
@@ -64,7 +64,7 @@ Manual sorting is:
 
 Industrial computer-vision sorters exist but cost tens of thousands of pounds, putting them out of reach of smallholders, market vendors, and home growers. This project asks a deliberately simple question:
 
-> **Can the same idea — image-based ripeness classification — be delivered for under £20, on a microcontroller, with a non-technical visual interface?**
+> **Can the same idea-image-based ripeness classification-be delivered for under £20, on a microcontroller, with a non-technical visual interface?**
 
 ---
 
@@ -98,7 +98,7 @@ A frame is captured from the laptop webcam, classified by the on-device-ready Ed
 ## 🔧 Hardware & Components
 
 <p align="center">
-  <img src="Media/Enclosure + Components/IMG_7381.jpeg" width="640" alt="ESP32S board and NeoPixel stick laid out before assembly"/>
+  <img src="Media/Enclosure%20%2B%20Components/IMG_7381.jpeg" width="640" alt="ESP32S board and NeoPixel stick laid out before assembly"/>
   <br/>
   <em>Core components: <strong>Adafruit NeoPixel Stick</strong> (left) and <strong>ESP32-S</strong> dev board (right).</em>
 </p>
@@ -113,7 +113,7 @@ A frame is captured from the laptop webcam, classified by the on-device-ready Ed
 | **Total** | | **≈ £14–£15** |
 
 <p align="center">
-  <img src="Media/Enclosure + Components/IMG_7374.jpeg" width="380" alt="ESP32S seated inside the green LED-toy-lamp enclosure"/>
+  <img src="Media/Enclosure%20%2B%20Components/IMG_7374.jpeg" width="380" alt="ESP32S seated inside the green LED-toy-lamp enclosure"/>
   <br/>
   <em>The ESP32-S seated inside the upcycled LED toy-lamp enclosure during assembly.</em>
 </p>
@@ -131,9 +131,9 @@ Only three wires are needed between the NeoPixel stick and the ESP32-S:
 | `DIN` | `GPIO 5` | Single-wire WS2812 data line |
 
 <p align="center">
-  <img src="Media/ESP32S + NeoPixel (WS2812) Wiring/[IMG_7382.jpeg]" width="300" alt="NeoPixel wired to ESP32-S during assembly"/>
+  <img src="Media/ESP32S%20%2B%20NeoPixel%20%28WS2812%29%20Wiring/IMG_7382.jpeg" width="300" alt="NeoPixel wired to ESP32-S during assembly"/>
   <br/>
-  <em>Wiring during assembly - green = data, red = 5 V, ground shared.</em>
+  <em>Wiring during assembly-green = data, red = 5 V, ground shared.</em>
 </p>
 
 ---
@@ -153,8 +153,8 @@ Only three wires are needed between the NeoPixel stick and the ESP32-S:
 
 The training dataset combined publicly available tomato images:
 
-- **Ripe** and **unripe** classes -  drawn from the [Riped and Unripe Tomato Dataset](https://www.kaggle.com/datasets) on Kaggle
-- **Rotten** class - sourced from the [Fruits-360 dataset](https://www.kaggle.com/datasets/moltean/fruits)
+- **Ripe** and **unripe** classes — drawn from the [Riped and Unripe Tomato Dataset](https://www.kaggle.com/datasets) on Kaggle
+- **Rotten** class-sourced from the [Fruits-360 dataset](https://www.kaggle.com/datasets/moltean/fruits)
 
 After cleaning and balancing, the working dataset contained roughly **300 labelled images**, split **80 / 20** between training and validation in Edge Impulse. Each image was resized to **96 × 96 RGB** (yielding the **27,648 input features** seen in the impulse design), normalised, and augmented at training time with random flips, brightness shifts, and crops to reduce overfitting on a small dataset.
 
@@ -162,10 +162,10 @@ After cleaning and balancing, the working dataset contained roughly **300 labell
 
 ## 🧠 Neural Network & Training
 
-The model is a transfer-learned **MobileNetV2 (96 × 96, width multiplier 0.35)** with ImageNet-pretrained weights, a **16-neuron dense head with 0.1 dropout**, and a **3-class softmax output**. MobileNetV2's inverted-residual bottlenecks are designed for mobile and embedded deployment - they give an excellent accuracy-to-footprint ratio on resource-constrained hardware.
+The model is a transfer-learned **MobileNetV2 (96 × 96, width multiplier 0.35)** with ImageNet-pretrained weights, a **16-neuron dense head with 0.1 dropout**, and a **3-class softmax output**. MobileNetV2's inverted-residual bottlenecks are designed for mobile and embedded deployment-they give an excellent accuracy-to-footprint ratio on resource-constrained hardware.
 
 <p align="center">
-  <img src="Media/Edge Impulse Screenshot/[Picture12].png" width="640" alt="Edge Impulse impulse design and on-device performance"/>
+  <img src="Media/Edge%20Impulse%20Screenshot/Picture12.png" width="640" alt="Edge Impulse impulse design and on-device performance"/>
   <br/>
   <em>Impulse design (left): Input 27,648 features → MobileNetV2 96×96 0.35 → dense (16, dropout 0.1) → softmax (3). Right: feature embedding and on-device performance.</em>
 </p>
@@ -184,9 +184,9 @@ The model is a transfer-learned **MobileNetV2 (96 × 96, width multiplier 0.35)*
 | Data augmentation | flip + brightness + crop |
 
 <p align="center">
-  <img src="Media/Edge Impulse Screenshot/[Picture6].png" width="640" alt="Edge Impulse training accuracy and loss curves"/>
+  <img src="Media/Edge%20Impulse%20Screenshot/Picture6.png" width="640" alt="Edge Impulse training accuracy and loss curves"/>
   <br/>
-  <em>Edge Impulse training graphs - epoch accuracy (top) and epoch loss (bottom). Curves converge by ~epoch 15 with no severe overfitting.</em>
+  <em>Edge Impulse training graphs-epoch accuracy (top) and epoch loss (bottom). Curves converge by ~epoch 15 with no severe overfitting.</em>
 </p>
 
 **On-device profile** (target: Cortex-M4F @ 80 MHz, EON Compiler RAM-optimised)
@@ -218,7 +218,7 @@ void loop() {
 }
 ```
 
-A fourth **"uncertain"** state is emitted whenever the model's top-class probability falls below **0.6** - this prevents confident misclassifications and is shown as blue on the LED. The same idea was added as an `UNCERTAIN` column in the test confusion matrix (see [Results](#-results)).
+A fourth **"uncertain"** state is emitted whenever the model's top-class probability falls below **0.6** — this prevents confident misclassifications and is shown as blue on the LED. The same idea was added as an `UNCERTAIN` column in the test confusion matrix (see [Results](#-results)).
 
 ---
 
@@ -227,7 +227,7 @@ A fourth **"uncertain"** state is emitted whenever the model's top-class probabi
 ### Validation set (quantised int8 model)
 
 <p align="center">
-  <img src="Media/Edge Impulse Screenshot/[Picture1].png" width="420" alt="Edge Impulse validation confusion matrix at 84.9% accuracy"/>
+  <img src="Media/Edge%20Impulse%20Screenshot/Picture1.png" width="420" alt="Edge Impulse validation confusion matrix at 84.9% accuracy"/>
 </p>
 
 - **Validation accuracy:** 84.9 %
@@ -237,7 +237,7 @@ A fourth **"uncertain"** state is emitted whenever the model's top-class probabi
 ### Held-out test set (with UNCERTAIN class)
 
 <p align="center">
-  <Media/Edge Impulse Screenshot/[Picture8].png" width="640" alt="Test-set headline metrics and confusion matrix"/>
+  <img src="Media/Edge%20Impulse%20Screenshot/Picture8.png" width="640" alt="Test-set headline metrics and confusion matrix"/>
 </p>
 
 - **Test accuracy:** **84.93 %**
@@ -245,12 +245,12 @@ A fourth **"uncertain"** state is emitted whenever the model's top-class probabi
 - **Weighted precision / recall / F1:** **0.92 / 0.92 / 0.92**
 - **Per-class F1:** ripe 0.91, rotten 0.84, unripe 0.91
 
-The strongest class is **unripe** (recall 91.3 %), followed by **ripe** (87.0 %); **rotten** is weakest (77.8 %), most often slipping into the **UNCERTAIN** bucket - a desirable failure mode, because the device simply withholds a recommendation rather than committing to a wrong answer.
+The strongest class is **unripe** (recall 91.3 %), followed by **ripe** (87.0 %); **rotten** is weakest (77.8 %), most often slipping into the **UNCERTAIN** bucket-a desirable failure mode, because the device simply withholds a recommendation rather than committing to a wrong answer.
 
 ### Feature embedding
 
 <p align="center">
-  <Media/Enclosure + Components/demo.mov" width="640" alt="Feature explorer scatter plot showing ripe/unripe/rotten clusters"/>
+  <img src="Media/Edge%20Impulse%20Screenshot/Picture9.png" width="640" alt="Feature explorer scatter plot showing ripe/unripe/rotten clusters"/>
   <br/>
   <em>Feature Explorer - each dot is one sample. Ripe and unripe form distinct clusters; rotten partially overlaps with ripe (very ripe red and lightly rotting tomatoes share a colour palette).</em>
 </p>
@@ -259,9 +259,9 @@ The strongest class is **unripe** (recall 91.3 %), followed by **ripe** (87.0 %)
 
 ## 🎬 Demo
 
-A short demo video (`demo.mov`) shows the full end-to-end pipeline: a tomato image is shown to the laptop webcam, the model classifies it, and the lamp glows green / amber / red in real time.
+A short demo video shows the full end-to-end pipeline: a tomato image is shown to the laptop webcam, the model classifies it, and the lamp glows green / amber / red in real time.
 
-> 📹 **Watch:** [Watch the demo](Media/Enclosure-and-Components/demo.mov) in this repository.
+> 📹 **Watch:** [demo.mov](Media/Enclosure%20%2B%20Components/demo.mov) in this repository.
 
 ---
 
@@ -269,17 +269,18 @@ A short demo video (`demo.mov`) shows the full end-to-end pipeline: a tomato ima
 
 ```
 .
-├── README.md                       ← this file
-├── arduino/
-│   └── Tomato_AI_Project.ino       ← ESP32-S sketch (NeoPixel + serial parser)
-├── edge_impulse/
-│   ├── README.md                   ← link to public Edge Impulse project
-│   └── exported_library/           ← Edge Impulse Arduino library (auto-generated)
-├── inference_host/
-│   └── classify.py                 ← laptop-side script: webcam → model → serial
-├── readme_assets/                  ← images embedded in this README
-└── docs/
-    └── Tomato_Ripeness_Edge_AI_Report.docx   ← full coursework report
+├── README.md                        ← this file
+├── LICENSE
+├── .gitignore
+├── Assessment/                      ← coursework deliverables
+├── Device_led_test/                 ← early LED test sketches
+├── Final_Code/                      ← final ESP32-S Arduino sketch
+├── Media/
+│   ├── Edge Impulse Screenshot/     ← training graphs, confusion matrix, etc.
+│   ├── Enclosure + Components/      ← build photos + demo.mov
+│   └── ESP32S + NeoPixel (WS2812) Wiring/   ← wiring close-ups
+├── Model/                           ← exported Edge Impulse Arduino library
+└── Tomato_Dataset/                  ← cleaned dataset used for training
 ```
 
 ---
@@ -292,7 +293,7 @@ A short demo video (`demo.mov`) shows the full end-to-end pipeline: a tomato ima
 # In the Arduino IDE:
 # 1. Install ESP32 board support  (Boards Manager → "esp32")
 # 2. Install Adafruit NeoPixel    (Library Manager → "Adafruit NeoPixel")
-# 3. Open arduino/Tomato_AI_Project.ino
+# 3. Open Final_Code/Tomato_AI_Project.ino
 # 4. Select Board: "ESP32 Dev Module", set the correct COM port
 # 5. Click Upload
 ```
@@ -301,7 +302,7 @@ A short demo video (`demo.mov`) shows the full end-to-end pipeline: a tomato ima
 
 ```bash
 git clone https://github.com/Madina1219/CASA0018-SmartTomatoSortingSystemUsingEdgeAIandVisualFeedback.git
-cd CASA0018-SmartTomatoSortingSystemUsingEdgeAIandVisualFeedback/inference_host
+cd CASA0018-SmartTomatoSortingSystemUsingEdgeAIandVisualFeedback
 pip install edge_impulse_linux opencv-python pyserial
 python classify.py --port /dev/ttyUSB0      # macOS/Linux
 # python classify.py --port COM3            # Windows
@@ -318,7 +319,7 @@ The lamp should glow green for ripe, amber for unripe, red for rotten, and blue 
 ## 📚 Lessons Learned
 
 - **Data quality > model size.** Early models confused unripe and rotten constantly. Rebalancing the dataset and adding an explicit *uncertain* output bucket helped much more than swapping in a bigger backbone.
-- **Quantisation matters more than expected.** The float32 test accuracy was 84.9 %, but the int8 test accuracy dropped to 68.5 % - a wider gap than I anticipated. Quantisation-aware training (rather than post-hoc quantisation) would close most of that gap.
+- **Quantisation matters more than expected.** The float32 test accuracy was 84.9 %, but the int8 test accuracy dropped to 68.5 % — a wider gap than I anticipated. Quantisation-aware training (rather than post-hoc quantisation) would close most of that gap.
 - **Visual output beats numbers.** Non-technical users do not need to see a confidence score. They see green, and they know.
 - **No on-board camera = not truly edge.** Using the laptop webcam was a valid prototyping shortcut, but the system isn't fully embedded until both the model **and** the camera live on the device.
 - **Upcycled enclosures are underrated.** A LED toy lamp with a hollow body is, mechanically, an almost-perfect microcontroller enclosure: light-diffusing, robust, and free.
@@ -359,4 +360,3 @@ This project is released under the **MIT License**. See [`LICENSE`](LICENSE) for
 <p align="center">
   <em>Built with 🍅, an ESP32, and an old toy lamp.</em>
 </p>
-t
