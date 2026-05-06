@@ -6,10 +6,10 @@
 ![Accuracy](https://img.shields.io/badge/test%20accuracy-84.9%25-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
-> An embedded deep-learning system that classifies tomatoes as **ripe**, **unripe**, or **rotten**, and communicates the result through an RGB LED — running on a microcontroller small enough to fit inside a child's toy lamp.
+> An embedded deep-learning system that classifies tomatoes as **ripe**, **unripe**, or **rotten**, and communicates the result through an RGB LED-running on a microcontroller small enough to fit inside a child's toy lamp.
 
 <p align="center">
-  <img src="Media/Enclosure + Components/[Picture13.png].jpeg" width="320" alt="Assembled prototype glowing green for a ripe tomato"/>
+  <img src="Media/Enclosure + Components/[Picture13].png" width="320" alt="Assembled prototype glowing green for a ripe tomato"/>
   <br/>
   <em>The assembled prototype signalling “ripe” in green. Amber = unripe, red = rotten.</em>
 </p>
@@ -165,7 +165,7 @@ After cleaning and balancing, the working dataset contained roughly **300 labell
 The model is a transfer-learned **MobileNetV2 (96 × 96, width multiplier 0.35)** with ImageNet-pretrained weights, a **16-neuron dense head with 0.1 dropout**, and a **3-class softmax output**. MobileNetV2's inverted-residual bottlenecks are designed for mobile and embedded deployment - they give an excellent accuracy-to-footprint ratio on resource-constrained hardware.
 
 <p align="center">
-  <img src="Media/Edge Impulse Screenshot/[Picture12.png]" width="640" alt="Edge Impulse impulse design and on-device performance"/>
+  <img src="Media/Edge Impulse Screenshot/[Picture12].png" width="640" alt="Edge Impulse impulse design and on-device performance"/>
   <br/>
   <em>Impulse design (left): Input 27,648 features → MobileNetV2 96×96 0.35 → dense (16, dropout 0.1) → softmax (3). Right: feature embedding and on-device performance.</em>
 </p>
@@ -184,7 +184,7 @@ The model is a transfer-learned **MobileNetV2 (96 × 96, width multiplier 0.35)*
 | Data augmentation | flip + brightness + crop |
 
 <p align="center">
-  <img src="Media/Edge Impulse Screenshot/[Picture6.png]" width="640" alt="Edge Impulse training accuracy and loss curves"/>
+  <img src="Media/Edge Impulse Screenshot/[Picture6].png" width="640" alt="Edge Impulse training accuracy and loss curves"/>
   <br/>
   <em>Edge Impulse training graphs - epoch accuracy (top) and epoch loss (bottom). Curves converge by ~epoch 15 with no severe overfitting.</em>
 </p>
@@ -227,7 +227,7 @@ A fourth **"uncertain"** state is emitted whenever the model's top-class probabi
 ### Validation set (quantised int8 model)
 
 <p align="center">
-  <img src="Media/Edge Impulse Screenshot/[Picture1.png]" width="420" alt="Edge Impulse validation confusion matrix at 84.9% accuracy"/>
+  <img src="Media/Edge Impulse Screenshot/[Picture1].png" width="420" alt="Edge Impulse validation confusion matrix at 84.9% accuracy"/>
 </p>
 
 - **Validation accuracy:** 84.9 %
@@ -237,7 +237,7 @@ A fourth **"uncertain"** state is emitted whenever the model's top-class probabi
 ### Held-out test set (with UNCERTAIN class)
 
 <p align="center">
-  <Media/Edge Impulse Screenshot/[Picture8.png]" width="640" alt="Test-set headline metrics and confusion matrix"/>
+  <Media/Edge Impulse Screenshot/[Picture8].png" width="640" alt="Test-set headline metrics and confusion matrix"/>
 </p>
 
 - **Test accuracy:** **84.93 %**
@@ -261,7 +261,7 @@ The strongest class is **unripe** (recall 91.3 %), followed by **ripe** (87.0 %)
 
 A short demo video (`demo.mov`) shows the full end-to-end pipeline: a tomato image is shown to the laptop webcam, the model classifies it, and the lamp glows green / amber / red in real time.
 
-> 📹 **Watch:** [[Watch the demo](Media/Enclosure-and-Components/demo.mov) in this repository.
+> 📹 **Watch:** [Watch the demo](Media/Enclosure-and-Components/demo.mov) in this repository.
 
 ---
 
